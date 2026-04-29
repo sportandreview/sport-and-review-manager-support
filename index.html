@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pagina di supporto ufficiale per Sport and Review Manager: centri sportivi, campi, prenotazioni, calendario, pagamenti, utenti, privacy e gestione account." />
+  <title>Supporto | Sport and Review Manager</title>
+  <style>
+    :root {
+      --primary: #002a3a;
+      --primary-dark: #001c27;
+      --accent: #0647ff;
+      --accent-soft: #e8efff;
+      --orange: #ff8a00;
+      --text: #1f2028;
+      --muted: #6f7480;
+      --card: #ffffff;
+      --bg: #f6f7fb;
+      --shadow: 0 16px 35px rgba(0, 42, 58, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #0b4d65 0%, var(--primary) 42%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 42px 22px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 280px;
+      height: 280px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-inner,
+    main {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-wrap {
+      width: 92px;
+      height: 92px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.1);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 64px);
+      letter-spacing: -1.7px;
+      line-height: 1;
+    }
+
+    .hero p {
+      margin: 20px 0 0;
+      max-width: 700px;
+      font-size: clamp(18px, 3vw, 26px);
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    main {
+      margin-top: -42px;
+      padding: 0 22px 56px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      border: 1px solid rgba(0, 42, 58, 0.05);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.4px;
+    }
+
+    .card h3 {
+      margin: 22px 0 8px;
+      font-size: 19px;
+    }
+
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .highlight {
+      background: linear-gradient(140deg, #0928d9, #0647ff);
+      color: #fff;
+    }
+
+    .highlight p,
+    .highlight li {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .highlight a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .highlight .label {
+      color: #fff;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid #eef0f5;
+    }
+
+    .info-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .label {
+      width: 155px;
+      flex: 0 0 155px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .value {
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .section-title {
+      margin: 36px 0 16px;
+      font-size: 30px;
+      letter-spacing: -0.6px;
+    }
+
+    .faq details {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: 0 10px 24px rgba(0, 42, 58, 0.08);
+      margin-bottom: 14px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .faq p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 28px 16px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        padding-top: 30px;
+      }
+
+      .brand {
+        align-items: flex-start;
+      }
+
+      .logo-wrap {
+        width: 74px;
+        height: 74px;
+        border-radius: 22px;
+      }
+
+      .span-7,
+      .span-5,
+      .span-6,
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .info-list li {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .label {
+        width: auto;
+        flex: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <div class="logo-wrap" aria-hidden="true">
+          <img src="logo.png" alt="Sport and Review Manager logo" />
+        </div>
+        <div>
+          <h1>Sport and Review Manager</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" aria-label="Informazioni principali">
+      <article class="card span-7">
+        <h2>Come possiamo aiutarti?</h2>
+        <p>
+          Questa pagina raccoglie le informazioni di supporto per <strong>Sport and Review Manager</strong>,
+          l'app per gestire centri sportivi, configurare campi, organizzare prenotazioni,
+          monitorare utenti e pagamenti e amministrare le attività della struttura.
+        </p>
+        <div class="badge-row" aria-label="Funzionalità principali">
+          <span class="badge">Gestione centri</span>
+          <span class="badge">Campi e disponibilità</span>
+          <span class="badge">Prenotazioni e calendario</span>
+          <span class="badge">Pagamenti e utenti</span>
+        </div>
+      </article>
+
+      <article class="card span-5 highlight">
+        <h2>Contatti</h2>
+        <p>Per assistenza su accesso, configurazione strutture e campi, prenotazioni, pagamenti, utenti o gestione account, contatta il team di supporto.</p>
+        <ul class="info-list">
+          <li><span class="label">Email</span><span class="value"><a href="mailto:support@emailazienda.com">support@emailazienda.com</a></span></li>
+          <li><span class="label">Telefono</span><span class="value"><a href="tel:+390000000000">+39 000 000 0000</a></span></li>
+          <li><span class="label">Tempo di risposta</span><span class="value">Entro 2 giorni lavorativi</span></li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>Informazioni app</h2>
+        <ul class="info-list">
+          <li><span class="label">Nome app</span><span class="value">Sport and Review Manager</span></li>
+          <li><span class="label">Società</span><span class="value">[Nome società / ragione sociale]</span></li>
+          <li><span class="label">Sviluppatore</span><span class="value">[Nome sviluppatore o società]</span></li>
+          <li><span class="label">Piattaforme</span><span class="value">iOS/Android</span></li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <h2>Privacy e dati</h2>
+        <p>
+          Dalla sezione Privacy dell'app puoi consultare lo stato dei consensi, i documenti accettati
+          e le richieste già inviate per accesso o cancellazione dei dati.
+        </p>
+        <ul class="info-list">
+          <li><span class="label">Privacy Policy</span><span class="value"><a href="[INCOLLA_QUI_LINK_PRIVACY_POLICY]">Apri Privacy Policy</a></span></li>
+          <li><span class="label">Dati account</span><span class="value">Dati anagrafici, email, profilo, preferenze, storico consensi, strutture, campi, attività, prenotazioni, pagamenti e recensioni.</span></li>
+          <li><span class="label">Portabilità dati</span><span class="value">Puoi richiedere via app un file Excel (.xlsx) con i dati disponibili.</span></li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>Gestione account e cancellazione dati</h2>
+        <p>
+          Nell'app sono disponibili strumenti dedicati alla gestione dei consensi e dei dati personali.
+          Se revochi o rifiuti i consensi necessari, l'account viene sospeso immediatamente e l'app non è più fruibile
+          finché i consensi non vengono nuovamente accettati. Puoi inoltre richiedere la cancellazione definitiva
+          dell'account e dei dati associati: la richiesta viene presa in carico e diventa effettiva due giorni dopo l'invio.
+        </p>
+        <ul class="info-list">
+          <li><span class="label">Sospensione account</span><span class="value">Revoca o rifiuta i consensi richiesti: l'accesso ai servizi viene disabilitato subito.</span></li>
+          <li><span class="label">Riattivazione</span><span class="value">Accetta nuovamente i consensi richiesti per riattivare l'account e accedere alle funzioni di gestione.</span></li>
+          <li><span class="label">Cancellazione account</span><span class="value">Invia la richiesta dalla sezione Privacy dell'app: profilo e dati associati vengono eliminati definitivamente dopo due giorni.</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <h2 class="section-title">Domande frequenti</h2>
+    <section class="faq" aria-label="FAQ">
+      <details>
+        <summary>Come posso aggiungere un nuovo centro sportivo?</summary>
+        <p>Dalla sezione Centri sportivi seleziona "Aggiungi centro sportivo" e compila i dati legali, l'indirizzo, gli orari di apertura e i servizi disponibili. Una volta salvato, il centro sarà visibile nella ricerca e pronto per la configurazione dei campi.</p>
+      </details>
+
+      <details>
+        <summary>Come configuro i campi e i servizi offerti?</summary>
+        <p>Entra nel centro, vai su "Aggiungi campo" e definisci superficie, copertura, servizi e tipi di utilizzo. Puoi associare prezzi, durata degli slot e servizi extra in modo che l'utente trovi subito l'offerta corretta.</p>
+      </details>
+
+      <details>
+        <summary>Come gestisco disponibilità e fasce di prezzo?</summary>
+        <p>Per ogni campo imposta giorni e orari di apertura e usa "Fasce di prezzo" o "Prezzi personalizzati" per creare tariffe diverse a seconda degli slot. Ricorda di indicare anche entro quante ore è consentita la cancellazione.</p>
+      </details>
+
+      <details>
+        <summary>Come funziona il flusso di prenotazione e pagamento?</summary>
+        <p>Quando un utente sceglie campo, durata e servizi, il riepilogo appare in Checkout con totale aggiornato. Dopo la conferma, la prenotazione viene registrata nel calendario e nella sezione Prenotazioni per essere gestita o condivisa.</p>
+      </details>
+
+      <details>
+        <summary>Posso modificare o cancellare una prenotazione?</summary>
+        <p>Apri il dettaglio della prenotazione dal calendario o dall'elenco Prenotazioni: se sei entro la finestra di cancellazione impostata nel campo puoi annullare senza penali; oltre tale limite contatta il supporto per valutare alternative.</p>
+      </details>
+
+      <details>
+        <summary>Come gestisco partecipanti e valutazioni post partita?</summary>
+        <p>Dopo la partita accedi a "Partecipanti" per confermare le presenze e usa "Valutazione partecipanti" per inserire feedback. Le valutazioni aggiornano ranking, affidabilità e statistiche del profilo dei giocatori coinvolti.</p>
+      </details>
+
+      <details>
+        <summary>Come ricevo notifiche sulle attività del centro?</summary>
+        <p>Assicurati di aver autorizzato le notifiche push sul dispositivo: l'app invia aggiornamenti su prenotazioni, pagamenti, feedback e modifiche alle disponibilità. Il token di notifica viene gestito automaticamente all'accesso e al logout.</p>
+      </details>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 FALCONEYE Srl. Tutti i diritti riservati.</p>
+      <p>Sport and Review Manager</p>
+    </footer>
+  </main>
+</body>
+</html>
